@@ -69,11 +69,7 @@ export function RegisterForm() {
 
     return (
         <Stack>
-            {isError && (
-                <p className="text-rose-500">
-                    Error registering: {error.message}
-                </p>
-            )}
+            {isError && <ErrorMessage message={error.message} />}
             {isSuccess && (
                 <p className="text-emerald-500">
                     Registration successful! Verify your email to login.
