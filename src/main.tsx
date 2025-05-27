@@ -8,23 +8,30 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 
 // Subscribes to session/authentication state
-import { AuthSessionListener } from "./context/AuthSessionListener.tsx";
+import { AuthSessionListener } from "@/providers/AuthSessionListener.tsx";
 
 // React Router
 import { BrowserRouter } from "react-router";
+
+import { Provider } from "@/components/ui/provider.tsx";
 
 import "./styles/index.css";
 import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AuthSessionListener>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </AuthSessionListener>
-      <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-left" />
-    </QueryClientProvider>
-  </StrictMode>
+    <StrictMode>
+        <QueryClientProvider client={queryClient}>
+            <AuthSessionListener>
+                <BrowserRouter>
+                    <Provider>
+                        <App />
+                    </Provider>
+                </BrowserRouter>
+            </AuthSessionListener>
+            <ReactQueryDevtools
+                initialIsOpen={false}
+                buttonPosition="bottom-left"
+            />
+        </QueryClientProvider>
+    </StrictMode>
 );

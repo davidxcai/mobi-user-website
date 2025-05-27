@@ -1,14 +1,15 @@
 import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
+import { Container, Stack } from "@chakra-ui/react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <main className="bg-slate-900 text-white">
-      <div className="flex flex-col max-w-7xl mx-auto h-screen">
-        <Navbar />
-        {children}
-        <Footer />
-      </div>
-    </main>
-  );
+    return (
+        <Stack height="100vh">
+            <Navbar />
+            <Container flex="1" overflow="hidden">
+                <Stack gap="8" height="full" align="center">
+                    {children}
+                </Stack>
+            </Container>
+        </Stack>
+    );
 }

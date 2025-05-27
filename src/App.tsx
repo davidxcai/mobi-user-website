@@ -1,31 +1,26 @@
-import { Layout } from "./components/Layout";
 import { Routes, Route } from "react-router";
-import { Home, Login, Register, Dashboard, Profile, NotFound } from "./pages";
-import { ProtectedRoutes } from "./components/ProtectedRoutes";
-import { AuthRoutes } from "./components/AuthRoutes";
+import { Profile, NotFound } from "@/pages";
+import { ProtectedRoutes } from "@/providers/ProtectedRoutes";
+import { AuthRoutes } from "@/providers/AuthRoutes";
+import { LoginForm, RegisterForm } from "@/forms";
 
 function App() {
-  return (
-    <Layout>
-      <Routes>
-        {/* Public */}
-        <Route index element={<Home />} />
-        <Route path="*" element={<NotFound />} />
+    return (
+        <Routes>
+            {/* Public */}
+            <Route path="/" element={<AuthRoutes />}>
+                <Route index element={<LoginForm />} />
+                <Route path="login" element={<LoginForm />} />
+                <Route path="register" element={<RegisterForm />} />
+                <Route path="*" element={<NotFound />} />
+            </Route>
 
-        {/* Auth Pages */}
-        <Route element={<AuthRoutes />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-
-        {/* Protected */}
-        <Route element={<ProtectedRoutes />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="profile" element={<Profile />} />
-        </Route>
-      </Routes>
-    </Layout>
-  );
+            {/* Protected */}
+            <Route element={<ProtectedRoutes />}>
+                <Route path="profile" element={<Profile />} />
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;
