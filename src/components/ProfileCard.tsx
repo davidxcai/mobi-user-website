@@ -1,6 +1,6 @@
 import { Avatar, Card, Center, Heading, QrCode, Stack } from "@chakra-ui/react";
 import { useProfile } from "@/providers/ProfileProvider";
-import { MobiLogo } from "@/assets/MobiLogo";
+import MobiLogo from "@/assets/mobi-logo.svg?react";
 
 export function ProfileCard() {
     const { profile } = useProfile();
@@ -37,17 +37,16 @@ export function ProfileCard() {
 }
 
 function QRCode({ userId }: { userId: string }) {
-    const frame = {
-        size: "xl",
-        fill: "white",
-    };
     return (
         <QrCode.Root value={userId} size="xl" encoding={{ ecc: "H" }}>
-            <QrCode.Frame fill={frame.fill}>
+            <QrCode.Frame>
                 <QrCode.Pattern />
             </QrCode.Frame>
             <QrCode.Overlay>
-                <MobiLogo />
+                <MobiLogo
+                    color="fg.inverted"
+                    style={{ width: "auto", height: "auto" }}
+                />
             </QrCode.Overlay>
         </QrCode.Root>
     );
