@@ -44,7 +44,7 @@ export function LoginForm() {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center h-full">
+        <div>
             {loginError && <ErrorMessage message={error.message} />}
             {loginSuccess && (
                 <p className="text-emerald-500">
