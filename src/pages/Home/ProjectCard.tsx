@@ -1,5 +1,9 @@
 import { Box, Image, HStack, VStack, Text } from "@chakra-ui/react";
-import type { Project } from "@/types"; // Adjust the import path as necessary
+import type { Project } from "@/types";
+
+// TODO:
+// enable link functionality
+// when user clicks project, navigate to website
 
 export function ProjectCard({ project }: { project: Project }) {
     return (

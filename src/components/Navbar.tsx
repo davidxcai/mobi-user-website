@@ -12,6 +12,9 @@ import { AuthButtons } from "./LogoutButton";
 import mobiLogo from "@/assets/mobi-logo-white.svg";
 import { useScrollHide } from "@/helpers/scroll";
 
+// TODO:
+// turn logo into link to go home
+
 export function Navbar() {
     const isMobile = useBreakpointValue({ base: true, md: false });
     const { hidden, scrolled } = useScrollHide(8);
@@ -65,7 +68,7 @@ function DesktopNavLinks() {
         <HStack fontWeight={600} gap={12}>
             <NavLink to="/">About</NavLink>
             <NavLink to="/events">Events</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
+
             <AuthButtons />
         </HStack>
     );

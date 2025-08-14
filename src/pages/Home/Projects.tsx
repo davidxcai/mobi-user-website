@@ -3,6 +3,10 @@ import { Heading, Stack, useBreakpointValue } from "@chakra-ui/react";
 import { projects } from "@/data/projects"; // Adjust the import path as necessary
 import { Reveal } from "@/components/ui/Reveal";
 
+// TODO:
+// implement view all projects button
+// need seperate page dedicated to all projects
+
 export function Projects() {
     const isMobile = useBreakpointValue({ base: true, md: false });
     return (
@@ -21,7 +25,12 @@ export function Projects() {
             >
                 Community Projects
             </Heading>
-            <Stack direction={isMobile ? "column" : "row"} gap={12} px={4}>
+            <Stack
+                direction={isMobile ? "column" : "row"}
+                gap={12}
+                px={4}
+                justify={"center"}
+            >
                 {projects.map((project, index) => (
                     <Reveal delay={(index + 1) * 150}>
                         <ProjectCard

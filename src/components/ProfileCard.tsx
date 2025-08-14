@@ -2,15 +2,26 @@ import { Avatar, Card, Center, Heading, QrCode, Stack } from "@chakra-ui/react";
 import { useProfile } from "@/providers/ProfileProvider";
 import MobiLogo from "@/assets/mobi-logo.svg?react";
 
+// TODO;
+// change color of membership card
+// make card min width
+
 export function ProfileCard() {
     const { profile } = useProfile();
-    const fullname =
-        `${profile?.first_name || ""} ${profile?.last_name || ""}`.trim();
+    const fullname = `${profile?.first_name || ""} ${
+        profile?.last_name || ""
+    }`.trim();
 
     const year = profile?.created_at.getFullYear();
 
     return (
-        <Card.Root textAlign="center">
+        <Card.Root
+            textAlign="center"
+            mx={"auto"}
+            bg={"#0C001A"}
+            borderColor={"#3E0D93"}
+            boxShadow={"xl"}
+        >
             <Card.Header>
                 <Stack justify="center" align="center">
                     <Avatar.Root size="xl">

@@ -12,7 +12,7 @@ import vibes from "@/assets/hussain_diego.png";
 import offer from "@/assets/learning.png";
 import { Projects } from "@/pages/Home/Projects";
 import { Officers } from "@/pages/Home/Officers";
-import { UpcomingEvents } from "./Events";
+import { UpcomingEvents } from "./UpcomingEvents";
 import { JoinToday } from "./JoinToday";
 
 type Style = {
@@ -45,20 +45,26 @@ export function Home() {
         },
     };
     return (
-        <>
+        <Stack gap={32}>
             <HeroSection />
-            <WhoAreWe styles={styles} />
+            <WhoAreWe styles={styles} isMobile={isMobile} />
             <Projects />
             <VibesAndValues isMobile={isMobile} styles={styles} />
             <WhatWeOffer isMobile={isMobile} styles={styles} />
             <Officers />
             <UpcomingEvents />
             <JoinToday isMobile={isMobile} />
-        </>
+        </Stack>
     );
 }
 
-const WhoAreWe = ({ styles }: { styles: Style }) => {
+const WhoAreWe = ({
+    styles,
+    isMobile,
+}: {
+    styles: Style;
+    isMobile: boolean | undefined;
+}) => {
     const { heading, stack, text } = styles;
     return (
         <Stack
@@ -66,6 +72,7 @@ const WhoAreWe = ({ styles }: { styles: Style }) => {
             textAlign={"center"}
             fontSize={text.size}
             gap={stack.gap}
+            px={isMobile ? 4 : 32}
         >
             <Heading
                 fontSize={heading.h1}
@@ -111,7 +118,7 @@ const VibesAndValues = ({
             direction={isMobile ? "column" : "row"}
             gap={12}
             fontSize={text.size}
-            px={isMobile ? 4 : 32}
+            mx={isMobile ? 4 : 32}
         >
             <Stack gap={12} flex={1} fontWeight={500}>
                 <Heading

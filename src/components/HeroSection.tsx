@@ -24,6 +24,8 @@ export function HeroSection() {
             minH="100dvh"
             id="hero-section"
             bgGradient="radial-gradient(ellipse at center, rgba(28, 0, 94, 1), transparent 60%)"
+            maxWidth={1000}
+            mx="auto"
         >
             <VStack
                 align={isMobile ? "center" : "left"}

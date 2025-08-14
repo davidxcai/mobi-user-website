@@ -2,7 +2,6 @@ import { Navigate, Outlet } from "react-router";
 import { useSession } from "../hooks/useAuth";
 import { Center, Text } from "@chakra-ui/react";
 import { BeatLoader } from "react-spinners";
-import { PublicLayout } from "@/components/PublicLayout";
 
 export function AuthRoutes() {
     const { data: session, isPending: sessionPending } = useSession();
@@ -10,13 +9,7 @@ export function AuthRoutes() {
         return <LoadingSession />;
     }
 
-    return session ? (
-        <Navigate to="/profile" replace />
-    ) : (
-        <PublicLayout>
-            <Outlet />
-        </PublicLayout>
-    );
+    return session ? <Navigate to="/profile" replace /> : <Outlet />;
 }
 
 function LoadingSession() {
