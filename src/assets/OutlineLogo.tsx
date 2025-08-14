@@ -15,5 +15,5 @@ export function MobiOutlineLogo() {
             });
         }
     }, []);
-    return <OutlineLogo ref={ref} className="text-indigo-500 " />;
+    return <OutlineLogo ref={ref} className="text-indigo-500" />;
 }

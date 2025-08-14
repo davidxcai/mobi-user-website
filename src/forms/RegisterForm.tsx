@@ -7,7 +7,15 @@ import {
     isNotEmpty,
 } from "@mantine/form";
 import { useRegister } from "../hooks/useAuth";
-import { Alert, Button, Field, Fieldset, Input, Stack } from "@chakra-ui/react";
+import {
+    Alert,
+    Button,
+    Field,
+    Fieldset,
+    Input,
+    Stack,
+    Text,
+} from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { NavLink } from "react-router";
 import { IconExclamationCircle } from "@tabler/icons-react";
@@ -68,7 +76,17 @@ export function RegisterForm() {
     }, [isSuccess]);
 
     return (
-        <Stack>
+        <Stack
+            minH="100dvh"
+            align="center"
+            justify="center"
+            gap={8}
+            bgGradient="radial-gradient(ellipse at center, rgba(28, 0, 94, 1), transparent 60%)"
+            width={"100%"}
+        >
+            <Text fontWeight={700} fontSize={32} className="space-grotesk-500">
+                Create an account
+            </Text>
             {isError && <ErrorMessage message={error.message} />}
             {isSuccess && (
                 <p className="text-emerald-500">
@@ -156,6 +174,7 @@ export function RegisterForm() {
                             type="submit"
                             loading={isPending}
                             loadingText="Registering..."
+                            mb={4}
                         >
                             Register
                         </Button>

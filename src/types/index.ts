@@ -39,3 +39,32 @@ export interface Profile {
     account_status: string | "pending";
     active: boolean | true;
 }
+
+export type Project = {
+    title: string;
+    image: string;
+    user: string;
+    userImg: string | undefined;
+    description: string | undefined;
+};
+
+export type Officer = {
+    name: string;
+    role: string;
+    image: string;
+    links?: string[];
+};
+
+export interface Event {
+    id: string;
+    created_at: Date;
+    created_by: string;
+    title: string;
+    location: string;
+    momocoins: number;
+    attendance: number;
+    starts_at: Date;
+    ends_at: Date;
+    semester: string;
+    profiles: Profile;
+}

@@ -1,15 +1,23 @@
-import { useLogout } from "../hooks/useAuth";
+import { useLogout, useSession } from "../hooks/useAuth";
+import { Text } from "@chakra-ui/react";
+import { NavLink } from "react-router";
 
-export function LogoutButton() {
-  const { mutate: logout, isPending: logoutPending } = useLogout();
+export function AuthButtons() {
+    const { mutate: logout, isPending } = useLogout();
+    const { data: session } = useSession();
 
-  return (
-    <button
-      onClick={() => logout()}
-      className="cursor-pointer"
-      disabled={logoutPending}
-    >
-      {logoutPending ? "Logging out..." : "Logout"}
-    </button>
-  );
+    return (
+        <>
+            {session ? (
+                <Text onClick={() => logout()}>
+                    {isPending ? "Logging out..." : "Logout"}
+                </Text>
+            ) : (
+                <>
+                    <NavLink to="/login">Login</NavLink>
+                    <NavLink to="/signup">Sign Up</NavLink>
+                </>
+            )}
+        </>
+    );
 }

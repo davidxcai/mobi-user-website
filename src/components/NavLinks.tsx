@@ -1,55 +1,45 @@
 import { NavLink } from "react-router";
-import { IconMenu, IconX } from "@tabler/icons-react";
-import { Menu, Portal, Text } from "@chakra-ui/react";
-import { useLogout } from "@/hooks/useAuth";
-import { useState } from "react";
-import { IconCalendarEvent, IconLogout2 } from "@tabler/icons-react";
+import { IconMenu } from "@tabler/icons-react";
+import {
+    Portal,
+    IconButton,
+    Drawer,
+    Stack,
+    useDisclosure,
+} from "@chakra-ui/react";
+import { AuthButtons } from "./LogoutButton";
 
-const icon = {
-    size: 20,
-};
-
-export function NavLinks() {
-    const [isOpen, setIsOpen] = useState(false);
+export function MobileNavLinks() {
+    const { open, onClose, setOpen } = useDisclosure();
 
     return (
-        <Menu.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
-            <Menu.Trigger asChild>
-                {isOpen ? (
-                    <IconX className="cursor-pointer" />
-                ) : (
-                    <IconMenu className="cursor-pointer" />
-                )}
-            </Menu.Trigger>
+        <Drawer.Root open={open} onOpenChange={() => setOpen(!open)}>
+            <Drawer.Trigger asChild>
+                <IconButton variant="plain">
+                    <IconMenu size={20} />
+                </IconButton>
+            </Drawer.Trigger>
             <Portal>
-                <Menu.Positioner>
-                    <Menu.Content>
-                        <Menu.Item value="profile">
-                            <IconCalendarEvent size={icon.size} />
-                            <NavLink to="/profile">
-                                <Text fontSize="md">Profile</Text>
-                            </NavLink>
-                        </Menu.Item>
-                        <Menu.Separator />
-                        <LogoutButton />
-                    </Menu.Content>
-                </Menu.Positioner>
+                <Drawer.Backdrop />
+                <Drawer.Positioner>
+                    <Drawer.Content>
+                        <Drawer.Body bg="#0C001A">
+                            <Stack
+                                marginTop={16}
+                                gap={8}
+                                fontSize={"lg"}
+                                fontWeight={700}
+                                onClick={onClose}
+                            >
+                                <NavLink to="/">Home</NavLink>
+                                <NavLink to="/events">Events</NavLink>
+                                <NavLink to="/contact">Contact</NavLink>
+                                <AuthButtons />
+                            </Stack>
+                        </Drawer.Body>
+                    </Drawer.Content>
+                </Drawer.Positioner>
             </Portal>
-        </Menu.Root>
-    );
-}
-
-function LogoutButton() {
-    const { mutate: logout, isPending } = useLogout();
-    return (
-        <Menu.Item
-            value="logout"
-            onClick={() => logout()}
-            disabled={isPending}
-            color="red.500"
-        >
-            <IconLogout2 size={icon.size} />
-            <Text fontSize="md">{isPending ? "Logging out..." : "Logout"}</Text>
-        </Menu.Item>
+        </Drawer.Root>
     );
 }
