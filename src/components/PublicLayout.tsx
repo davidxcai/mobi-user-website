@@ -1,13 +1,15 @@
-import { Container, Stack } from "@chakra-ui/react";
-import { MobiOutlineLogo } from "@/assets/OutlineLogo";
+import { Stack } from "@chakra-ui/react";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 export function PublicLayout({ children }: { children?: React.ReactNode }) {
     return (
-        <Container height="full" mt="8">
-            <Stack align="center" justify="center" height="full" gap="8">
-                <MobiOutlineLogo />
+        <>
+            <Navbar />
+            <Stack align="center" justify="center" gap="32">
                 {children}
             </Stack>
-        </Container>
+            <Footer />
+        </>
     );
 }

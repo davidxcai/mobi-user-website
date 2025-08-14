@@ -1,9 +1,13 @@
+import { Stack, Text, useBreakpointValue } from "@chakra-ui/react";
+
 export function Footer() {
-  return (
-    <footer className="flex justify-center items-center h-16 mt-auto">
-      <p className="text-center text-sm ">
-        &copy; {new Date().getFullYear()} Your Company. All rights reserved.
-      </p>
-    </footer>
-  );
+    const isMobile = useBreakpointValue({ base: true, md: false });
+    return (
+        <Stack paddingX={isMobile ? 4 : 32} paddingY={32}>
+            <Text>
+                &copy; {new Date().getFullYear()} Mobi Byte. All rights
+                reserved.
+            </Text>
+        </Stack>
+    );
 }

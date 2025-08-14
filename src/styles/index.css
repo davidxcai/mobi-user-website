@@ -5,3 +5,27 @@
     display: flex;
     flex-direction: column;
 }
+
+.space-grotesk-500 {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: "Bold";
+}
+
+@keyframes bob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .bob {
+        animation: none !important;
+    }
+}
