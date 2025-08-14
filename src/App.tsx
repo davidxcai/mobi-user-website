@@ -13,13 +13,14 @@ function App() {
             <StarsBackground />
             <Routes>
                 {/* Public */}
+
                 <Route path="/" element={<AuthRoutes />}>
                     <Route index element={<HomePage />} />
-                    <Route path="/login" element={<LoginForm />} />
-                    <Route path="/signup" element={<RegisterForm />} />
                     <Route path="/events" element={<Events />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/*" element={<NotFound />} />
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/signup" element={<RegisterForm />} />
                 </Route>
 
                 {/* Protected */}

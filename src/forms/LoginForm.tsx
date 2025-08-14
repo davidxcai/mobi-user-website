@@ -1,9 +1,18 @@
 import { useForm, isEmail, isNotEmpty } from "@mantine/form";
 import { useLogin } from "@/hooks/useAuth";
-import { Alert, Button, Field, Fieldset, Input, Text } from "@chakra-ui/react";
+import {
+    Alert,
+    Stack,
+    Button,
+    Field,
+    Fieldset,
+    Input,
+    Text,
+} from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { NavLink } from "react-router";
 import { IconExclamationCircle } from "@tabler/icons-react";
+import { MobiOutlineLogo } from "@/assets/OutlineLogo";
 
 function ErrorMessage({ message }: { message: string }) {
     return (
@@ -44,7 +53,18 @@ export function LoginForm() {
     }
 
     return (
-        <div>
+        <Stack
+            minH="100dvh"
+            align="center"
+            justify="center"
+            gap={8}
+            bgGradient="radial-gradient(ellipse at center, rgba(28, 0, 94, 1), transparent 60%)"
+            width={"100%"}
+        >
+            <MobiOutlineLogo />
+            <Text fontWeight={700} fontSize={32} className="space-grotesk-500">
+                Login
+            </Text>
             {loginError && <ErrorMessage message={error.message} />}
             {loginSuccess && (
                 <p className="text-emerald-500">
@@ -84,15 +104,16 @@ export function LoginForm() {
                             type="submit"
                             loading={loginPending}
                             loadingText="Logging in..."
+                            mb={4}
                         >
                             Login
                         </Button>
                         <NavLink to="/register">
-                            Don't have an account? Sign up!
+                            <Text>Don't have an account? Sign up!</Text>
                         </NavLink>
                     </Fieldset.Content>
                 </Fieldset.Root>
             </form>
-        </div>
+        </Stack>
     );
 }

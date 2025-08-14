@@ -9,13 +9,13 @@ export function AuthButtons() {
     return (
         <>
             {session ? (
-                <Text color="red.500" onClick={() => logout()}>
+                <Text onClick={() => logout()}>
                     {isPending ? "Logging out..." : "Logout"}
                 </Text>
             ) : (
                 <>
                     <NavLink to="/login">Login</NavLink>
-                    <NavLink to="/signup">Signup</NavLink>
+                    <NavLink to="/signup">Sign Up</NavLink>
                 </>
             )}
         </>
