@@ -1,4 +1,4 @@
-import { Box, Image, HStack, VStack, Heading, Text } from "@chakra-ui/react";
+import { Box, Image, HStack, VStack, Text } from "@chakra-ui/react";
 import type { Project } from "@/types"; // Adjust the import path as necessary
 
 export function ProjectCard({ project }: { project: Project }) {
