@@ -1,6 +1,5 @@
 import { Outlet, Navigate } from "react-router";
 import { useSession } from "../hooks/useAuth";
-import { Layout } from "../components/Layout";
 import { ProfileProvider } from "@/providers/ProfileProvider";
 import { Center, Text } from "@chakra-ui/react";
 import { BeatLoader } from "react-spinners";
@@ -14,9 +13,7 @@ export function ProtectedRoutes() {
 
     return session ? (
         <ProfileProvider>
-            <Layout>
-                <Outlet />
-            </Layout>
+            <Outlet />
         </ProfileProvider>
     ) : (
         <Navigate to="/login" replace />

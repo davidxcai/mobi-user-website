@@ -6,12 +6,17 @@ export function AuthButtons() {
     const { mutate: logout, isPending } = useLogout();
     const { data: session } = useSession();
 
+    console.log("Logout", session);
+
     return (
         <>
             {session ? (
-                <Text onClick={() => logout()}>
-                    {isPending ? "Logging out..." : "Logout"}
-                </Text>
+                <>
+                    <NavLink to="/profile">Profile</NavLink>
+                    <Text onClick={() => logout()}>
+                        {isPending ? "Logging out..." : "Logout"}
+                    </Text>
+                </>
             ) : (
                 <>
                     <NavLink to="/login">Login</NavLink>

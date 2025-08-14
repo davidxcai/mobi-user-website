@@ -5,8 +5,10 @@ import {
     IconBrandInstagram,
     IconWorld,
 } from "@tabler/icons-react";
-
 import type { Officer } from "@/types";
+
+// TODO:
+// hover over officer card opens modal and shows more about them
 
 export function OfficerCard({ officer }: { officer: Officer }) {
     const { name, role, image, links } = officer;
@@ -22,12 +24,12 @@ export function OfficerCard({ officer }: { officer: Officer }) {
                 rounded="full"
             />
             <Stack p={4} textAlign={"center"}>
-                <Text fontSize="xl" fontWeight={700}>
+                <Text fontSize={24} fontWeight={700}>
                     {name}
                 </Text>
-                <Text>{role}</Text>
+                <Text fontSize={20}>{role}</Text>
             </Stack>
-            <Stack direction={"row"} justify="center" p={4} gap={2}>
+            <Stack direction={"row"} justify="center" gap={2}>
                 {links?.map((link) => {
                     let icon = null;
                     if (link.includes("github")) {

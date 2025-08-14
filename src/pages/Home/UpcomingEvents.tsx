@@ -16,7 +16,7 @@ export function UpcomingEvents() {
     }
 
     return (
-        <Stack gap={12} px={isMobile ? 4 : 32} align="center" width="100%">
+        <Stack gap={12} px={isMobile ? 0 : 32} align="center" width="100%">
             <Text
                 fontWeight={600}
                 fontSize={48}
@@ -25,7 +25,7 @@ export function UpcomingEvents() {
             >
                 Upcoming Events
             </Text>
-            <Stack gap={4}>
+            <Stack gap={4} width="100%" maxWidth={isMobile ? "100%" : 800}>
                 {events.map((event, index) => (
                     <Reveal key={event.id} delay={(index + 1) * 150}>
                         <EventCard event={event} />

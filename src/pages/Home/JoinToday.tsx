@@ -12,15 +12,25 @@ export function JoinToday({ isMobile }: { isMobile: boolean | undefined }) {
             width={"100%"}
         >
             <Heading
-                fontWeight={600}
-                fontSize={48}
+                fontWeight={700}
+                fontSize={{ base: 36, md: 48 }}
                 className="space-grotesk-500"
+                lineHeight={1}
                 textAlign="center"
             >
-                Join Today!
+                Join{" "}
+                <span
+                    style={{
+                        color: "#0084FF",
+                        textShadow: "-2px -2px 0 #ff00aa",
+                    }}
+                >
+                    MOBI
+                </span>{" "}
+                Today!
             </Heading>
             <Stack>
-                <Text fontSize={24} fontWeight={700}>
+                <Text fontSize={24} fontWeight={700} textAlign={"center"}>
                     Become a part of our vibrant community and start your
                     journey!
                 </Text>

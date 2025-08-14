@@ -31,9 +31,9 @@ export function MobileNavLinks() {
                                 fontWeight={700}
                                 onClick={onClose}
                             >
-                                <NavLink to="/">Home</NavLink>
+                                <NavLink to="/">About</NavLink>
                                 <NavLink to="/events">Events</NavLink>
-                                <NavLink to="/contact">Contact</NavLink>
+                                <NavLink to="/projects">Projects</NavLink>
                                 <AuthButtons />
                             </Stack>
                         </Drawer.Body>
