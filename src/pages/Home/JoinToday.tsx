@@ -13,7 +13,7 @@ export function JoinToday({ isMobile }: { isMobile: boolean | undefined }) {
         >
             <Heading
                 fontWeight={700}
-                fontSize={{ base: 36, md: 48 }}
+                fontSize={{ base: 64, md: 96 }}
                 className="space-grotesk-500"
                 lineHeight={1}
                 textAlign="center"
@@ -30,7 +30,11 @@ export function JoinToday({ isMobile }: { isMobile: boolean | undefined }) {
                 Today!
             </Heading>
             <Stack>
-                <Text fontSize={24} fontWeight={700} textAlign={"center"}>
+                <Text
+                    fontSize={{ base: 24, md: 36 }}
+                    fontWeight={700}
+                    textAlign={"center"}
+                >
                     Become a part of our vibrant community and start your
                     journey!
                 </Text>

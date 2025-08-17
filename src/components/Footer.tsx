@@ -62,7 +62,7 @@ export function Footer() {
                     >
                         Discord
                     </Link>
-                    <Text>Office: ERB 418</Text>
+                    <Text>Office: ERB 437</Text>
                     <Text>contact@codewith.mobi</Text>
                 </Stack>
             </Stack>
