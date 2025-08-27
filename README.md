@@ -1,23 +1,8 @@
-## Supabase Auth Boilerplate
-
-This is a starter template with Supabase authentication + route protection built with React + TanStack Query + React Router.
-
-Add your choice of UI libraries or just use Tailwind CSS that's already included.
+## Mobi Public Website
 
 ### Features
 
-- Protected Routes
-- Auth Routes (redirect if already logged in)
-- Supabase auth state management
-- Session persistence
 
-### Starter Pages
-
-- Home
-- Login
-- Register
-- Dashboard
-- 404
 
 ### Dependencies
 
