@@ -13,7 +13,7 @@ export function AuthButtons() {
             {session ? (
                 <>
                     <NavLink to="/profile">Profile</NavLink>
-                    <Text onClick={() => logout()}>
+                    <Text onClick={() => logout()} cursor="pointer">
                         {isPending ? "Logging out..." : "Logout"}
                     </Text>
                 </>
